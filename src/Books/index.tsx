@@ -3,6 +3,7 @@ import BookCard from "./BookCard";
 import {Book} from "./Book";
 
 import "./Book.less"
+import SearchInput from "./SearchInput";
 
 interface StateProps {
 
@@ -17,7 +18,7 @@ interface State {
 
 export type Props = StateProps;
 
-export class BookList extends Component<Props, State> {
+export class BookListContainer extends Component<Props, State> {
 
     constructor(props: Props) {
         super(props);
@@ -29,7 +30,15 @@ export class BookList extends Component<Props, State> {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8000/Rest/books")
+        this.searchBook();
+    }
+
+    searchBook = (keyword? :string) => {
+        const baseUrl = "http://localhost:8000/Rest/books";
+        let url = keyword ? baseUrl + '?search=' + keyword : baseUrl;
+        fetch(url,  {
+            method: 'GET'
+        })
             .then(res => res.json())
             .then(
                 (result) => {
@@ -47,24 +56,28 @@ export class BookList extends Component<Props, State> {
                         error
                     });
                 }
-            )
-    }
+            );
+    };
 
     render() {
         const {items} = this.state;
+        // Generate BookCard list
         let list = items.map((item: Book) => {
                 return <BookCard key={item.id} item={item}/>
             }
         );
         return (
-            <div className="BookList">
-                {list}
-            </div>
+            <>
+                <SearchInput searchBook={this.searchBook}/>
+                <div className="BookList">
+                    {list}
+                </div>
+            </>
         );
     }
 }
 
-export default BookList;
+export default BookListContainer;
 
 
 

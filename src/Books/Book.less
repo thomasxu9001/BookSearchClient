@@ -4,8 +4,12 @@
   align-items: center;
   justify-content: center;
 }
-.BookCard {
+
+.Border {
   border: 1px black solid;
+}
+.BookCard {
+  .Border();
   width: 60%;
   margin: 1rem;
 
@@ -13,4 +17,14 @@
     margin: 0.5rem;
   }
 }
+
+.SearchBoxContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  .Border();
+}
+
 
