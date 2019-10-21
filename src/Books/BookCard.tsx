@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import "./Book.less";
 import {Book} from "./Book";
+import {RouteComponentProps, withRouter} from "react-router";
+
 
 interface StateProps {
     item: Book
@@ -10,14 +12,19 @@ interface State {
 }
 
 
-export type Props = StateProps;
+export type Props = StateProps & RouteComponentProps;
 
 export class BookCard extends Component<Props, State> {
+
+    handleBookCardClick = () => {
+        const {item} = this.props;
+        this.props.history.push('/book/' + item.id);
+    };
 
     render() {
         const {item} = this.props;
         return (
-            <div className="BookCard">
+            <div className="BookCard" onClick={this.handleBookCardClick}>
                 <div className="Card__field">
                     Title: {item.title}
                 </div>
@@ -28,7 +35,8 @@ export class BookCard extends Component<Props, State> {
         );
     }
 }
-export default BookCard;
+
+export default withRouter(BookCard);
 
 
 
