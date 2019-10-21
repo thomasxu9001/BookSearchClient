@@ -24,7 +24,7 @@ export class SearchInput extends Component<Props, State> {
         this.state = {
             searchHint: [],
         };
-    }
+    };
 
     onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {searchBook} = this.props;
@@ -58,11 +58,17 @@ export class SearchInput extends Component<Props, State> {
             );
     };
 
+    dropdownClickHandler = (title: string) => {
+        const {searchBook} = this.props;
+        this.setState({searchHint: []}, () => searchBook(title));
+    };
+
     renderSearchHint = () => {
         const {searchHint} = this.state;
-        const {searchBook} = this.props;
+
         let items = searchHint.map((item: Book) => {
-                return <div className="hintItem" key={item.id} onClick={() => searchBook(item.title)}> {item.title}</div>
+                return <div className="hintItem" key={item.id}
+                            onClick={() => this.dropdownClickHandler(item.title)}> {item.title}</div>
             }
         );
 
