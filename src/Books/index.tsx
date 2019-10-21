@@ -31,12 +31,12 @@ export class BookListContainer extends Component<Props, State> {
 
     componentDidMount() {
         this.searchBook();
-    }
+    };
 
-    searchBook = (keyword? :string) => {
+    searchBook = (keyword?: string) => {
         const baseUrl = "http://localhost:8000/Rest/books";
         let url = keyword ? baseUrl + '?search=' + keyword : baseUrl;
-        fetch(url,  {
+        fetch(url, {
             method: 'GET'
         })
             .then(res => res.json())
@@ -59,8 +59,9 @@ export class BookListContainer extends Component<Props, State> {
             );
     };
 
+
     render() {
-        const {items} = this.state;
+        const {items, isLoaded} = this.state;
         // Generate BookCard list
         let list = items.map((item: Book) => {
                 return <BookCard key={item.id} item={item}/>
@@ -69,9 +70,14 @@ export class BookListContainer extends Component<Props, State> {
         return (
             <>
                 <SearchInput searchBook={this.searchBook}/>
-                <div className="BookList">
-                    {list}
-                </div>
+                {isLoaded ? (
+                    <div className="BookList">
+                        {list}
+                    </div>
+                ) : (
+                    `Loading......`
+                )}
+
             </>
         );
     }
