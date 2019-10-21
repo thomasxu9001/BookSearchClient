@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./Book.less";
 
 interface StateProps {
 
@@ -15,7 +16,7 @@ export class BookCard extends Component<Props, State> {
     render() {
 
         return (
-            <div>
+            <div className="BookCard">
                 <div> Book Name</div>
                 <div> Author</div>
                 <div> Description</div>
