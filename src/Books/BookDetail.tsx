@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {withRouter, RouteComponentProps, } from "react-router";
-import {Link} from 'react-router-dom';
 import {Book} from "./Book";
 
 interface StateProps {
-
+    bookId: number | string
 }
 
 interface State {
@@ -14,7 +12,7 @@ interface State {
 }
 
 
-export type Props = StateProps & RouteComponentProps<{ id: string }>;
+export type Props = StateProps;
 
 export class BookDetail extends Component<Props, State> {
 
@@ -32,9 +30,8 @@ export class BookDetail extends Component<Props, State> {
     };
 
     getBookDetail = () => {
-        const {match} = this.props;
-
-        const url = "http://localhost:8000/Rest/book?id=" + match.params.id;
+        const {bookId} = this.props;
+        const url = "http://localhost:8000/Rest/book?id=" + bookId;
 
         fetch(url, {
             method: 'GET'
@@ -60,29 +57,24 @@ export class BookDetail extends Component<Props, State> {
         const {book} = this.state;
         return (
             <div>
-                <Link to={'/'}>
-                    Back to Book List
-                </Link>
-                <div> Book Detail Page</div>
                 {book &&
                     <div>
-                        <div className="Card__field">
-                            Title: {book.title}
+                        <div className="bookDetailTitle">
+                            {book.title}
                         </div>
-                        <div className="Card__field">
+                        <div className="bookDetailAuthor">
                             Author: {book.author}
                         </div>
-                        <div className="Card__field">
-                            Description: {book.description}
+                        <div className="bookDetailDescription">
+                             {book.description}
                         </div>
                     </div>
                 }
-
             </div>
         );
     }
 }
-export default withRouter(BookDetail);
+export default BookDetail;
 
 
 

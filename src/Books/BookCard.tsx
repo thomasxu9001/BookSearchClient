@@ -24,11 +24,11 @@ export class BookCard extends Component<Props, State> {
     render() {
         const {item} = this.props;
         return (
-            <div className="BookCard" onClick={this.handleBookCardClick}>
-                <div className="Card__field">
+            <div className="bookCard" onClick={this.handleBookCardClick}>
+                <div className="card__field">
                     Title: {item.title}
                 </div>
-                <div className="Card__field">
+                <div className="card__field">
                     Author: {item.author}
                 </div>
             </div>

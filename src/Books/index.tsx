@@ -4,6 +4,7 @@ import {Book} from "./Book";
 
 import "./Book.less"
 import SearchInput from "./SearchInput";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface StateProps {
 
@@ -59,20 +60,28 @@ export class BookListContainer extends Component<Props, State> {
             );
     };
 
+    // Generate BookCard list
+    getBookList = () => {
+        const {items} = this.state;
+       if (items && items.length > 0){
+           return items.map((item: Book) => {
+                   return <BookCard key={item.id} item={item}/>
+               }
+           );
+       }
+        return <div className="noResult">No results found.</div>
+    };
 
     render() {
-        const {items, isLoaded} = this.state;
-        // Generate BookCard list
-        let list = items.map((item: Book) => {
-                return <BookCard key={item.id} item={item}/>
-            }
-        );
+        const {isLoaded} = this.state;
+
         return (
             <>
+                <h1><FontAwesomeIcon icon="book"/> Smart Book Search</h1>
                 <SearchInput searchBook={this.searchBook}/>
                 {isLoaded ? (
-                    <div className="BookList">
-                        {list}
+                    <div className="bookList">
+                        {this.getBookList()}
                     </div>
                 ) : (
                     `Loading......`

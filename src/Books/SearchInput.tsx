@@ -10,6 +10,7 @@ interface StateProps {
 
 interface State {
     searchHint: []
+    searchValue: string
 }
 
 
@@ -23,18 +24,21 @@ export class SearchInput extends Component<Props, State> {
         this.debounceSearch = debounce(300, this.searchHint.bind(this));
         this.state = {
             searchHint: [],
+            searchValue: ''
         };
     };
 
     onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {searchBook} = this.props;
+
         e.persist();
+        // Update input value
+        this.setState({searchValue: e.target.value});
+        // Update search hint logic
         if (e.target.value && e.target.value.length > 0) {
-            this.debounceSearch(e.target.value);
+           this.debounceSearch(e.target.value);
         } else {
-            this.setState({searchHint: []}, () => {
-                searchBook();
-            });
+            this.setState({searchHint: []}, () => searchBook());
         }
 
     };
@@ -58,6 +62,13 @@ export class SearchInput extends Component<Props, State> {
             );
     };
 
+    searchClickHandler = () => {
+        const {searchBook} = this.props;
+        const {searchValue} = this.state;
+
+        this.setState({searchHint: []}, () => searchBook(searchValue));
+    };
+
     dropdownClickHandler = (title: string) => {
         const {searchBook} = this.props;
         this.setState({searchHint: []}, () => searchBook(title));
@@ -78,22 +89,25 @@ export class SearchInput extends Component<Props, State> {
     };
 
     render() {
-        const {searchHint} = this.state;
+        const {searchHint, searchValue} = this.state;
 
         return (
-            <>
-                <div className="SearchBoxContainer">
-                    <FontAwesomeIcon icon="search"/>
-                    <input onChange={this.onChangeHandler}/>
+
+            <div className="searchBoxContainer">
+                <div className="searchInputContainer">
+                    <input className="searchInput" onChange={this.onChangeHandler} value={searchValue}/>
+                    <div className="searchIcon">
+                        <FontAwesomeIcon icon="search" onClick={this.searchClickHandler}/>
+                    </div>
+
                 </div>
                 <div className="dropDownContainer">
                     {searchHint && searchHint.length > 0 &&
                     this.renderSearchHint()
                     }
                 </div>
+            </div>
 
-
-            </>
         );
     }
 }
