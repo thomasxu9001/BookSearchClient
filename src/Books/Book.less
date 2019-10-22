@@ -103,9 +103,6 @@
 
 
 .bookContainer {
-  display: flex;
-  flex-direction: row;
-
   .bookDetailTitle {
     font-weight: bold;
     font-size: 2rem;
@@ -120,11 +117,12 @@
   .bookDetailDescription {
     margin: 1rem;
     font-weight: bold;
+    text-align: left;
   }
 
   .backToList {
-    margin-left: 1rem;
-    width: 10rem;
+    position: absolute;
+    left: 1rem;
   }
 }
 
