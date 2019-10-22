@@ -66,7 +66,9 @@ export class SearchInput extends Component<Props, State> {
         const {searchBook} = this.props;
         const {searchValue} = this.state;
 
-        this.setState({searchHint: []}, () => searchBook(searchValue));
+        if (searchValue) {
+            this.setState({searchHint: []}, () => searchBook(searchValue));
+        }
     };
 
     dropdownClickHandler = (title: string) => {
@@ -96,8 +98,8 @@ export class SearchInput extends Component<Props, State> {
             <div className="searchBoxContainer">
                 <div className="searchInputContainer">
                     <input className="searchInput" onChange={this.onChangeHandler} value={searchValue}/>
-                    <div className="searchIcon">
-                        <FontAwesomeIcon icon="search" onClick={this.searchClickHandler}/>
+                    <div className="searchIcon" onClick={this.searchClickHandler}>
+                        <FontAwesomeIcon icon="search"/>
                     </div>
 
                 </div>
