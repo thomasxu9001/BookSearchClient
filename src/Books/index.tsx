@@ -77,8 +77,10 @@ export class BookListContainer extends Component<Props, State> {
 
         return (
             <>
-                <h1><FontAwesomeIcon icon="book"/> Smart Book Search</h1>
-                <SearchInput searchBook={this.searchBook}/>
+                <div className='bookMainHeader'>
+                    <h1><FontAwesomeIcon icon="book"/> Smart Book Search</h1>
+                    <SearchInput searchBook={this.searchBook}/>
+                </div>
                 {isLoaded ? (
                     <div className="bookList">
                         {this.getBookList()}
