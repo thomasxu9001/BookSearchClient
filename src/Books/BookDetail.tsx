@@ -31,7 +31,7 @@ export class BookDetail extends Component<Props, State> {
 
     getBookDetail = () => {
         const {bookId} = this.props;
-        const url = "http://localhost:8000/Rest/book?id=" + bookId;
+        const url = "http://localhost:8000/Rest/book/id/" + bookId;
 
         fetch(url, {
             method: 'GET'
