@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route, BrowserRouter as Router } from 'react-router-dom'
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 import BookListContainer from "./Books";
 import {BookContainer} from "./Books/BookContainer";
+import {NotFoundPage} from "./NotFoundPage";
 import './App.css';
 
 //Font awesome
@@ -14,15 +15,16 @@ library.add(fab, faSearch, faBook);
 const App: React.FC = () => {
   return (
     <div className="App">
-        <Router>
-            <div>
+        <BrowserRouter>
+            <Switch>
                 <Route exact path="/" component={BookListContainer} />
-                <Route path="/book/:id" component={BookContainer} />
-            </div>
-        </Router>
+                <Route exact path="/book/:id" component={BookContainer} />
+                <Route component={NotFoundPage} />
+            </Switch>
+        </BrowserRouter>
 
     </div>
   );
-}
+};
 
 export default App;

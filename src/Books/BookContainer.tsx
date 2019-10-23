@@ -23,11 +23,12 @@ export class BookContainer extends Component<Props, State> {
                 <Link className="backToList" to={'/'}>
                     Back to Book List
                 </Link>
-                <BookDetail bookId={match.params.id}/>
+                <BookDetail bookId={+match.params.id}/>
             </div>
         );
     }
 }
+
 export default withRouter(BookContainer);
 
 

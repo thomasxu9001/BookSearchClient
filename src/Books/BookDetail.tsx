@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Book} from "./Book";
 
 interface StateProps {
-    bookId: number | string
+    bookId: number
 }
 
 interface State {
