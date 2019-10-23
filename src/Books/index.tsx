@@ -45,7 +45,7 @@ export class BookListContainer extends Component<Props, State> {
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result
+                        items: result['items']
                     });
                 },
                 // Note: it's important to handle errors here

@@ -54,7 +54,7 @@ export class SearchInput extends Component<Props, State> {
             .then(
                 (result) => {
                     this.setState({
-                        searchHint: result
+                        searchHint: result['items']
                     });
                 },
                 (error) => {
