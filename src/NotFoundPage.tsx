@@ -22,7 +22,7 @@ export class NotFoundPage extends Component<Props, State> {
                 <Link className="backToList" to={'/'}>
                     Back to Book List
                 </Link>
-                <h1> Whoops~ The page has been built.</h1>
+                <h1> Whoops~ This page has not been built.</h1>
             </>
         );
     }
