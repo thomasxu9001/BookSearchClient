@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import BookCard from '../components/BookCard';
-import {Book} from '../Book';
-import "../Book.less";
 import SearchInput from '../components/SearchInput';
 import PaginationFooter from '../../PaginationFooter';
-
+import {Book} from '../Book';
+import s from "../Book.less";
 
 
 interface StateProps {
@@ -92,7 +91,7 @@ export class BookListContainer extends Component<Props, State> {
                }
            );
        }
-        return <div className="noResult">No results found.</div>
+        return <div className={s.noResult}>No results found.</div>
     };
 
     render() {
@@ -100,12 +99,12 @@ export class BookListContainer extends Component<Props, State> {
 
         return (
             <>
-                <div className='bookMainHeader'>
+                <div className={s.bookMainHeader}>
                     <h1><FontAwesomeIcon icon="book"/> Smart Book Search</h1>
                     <SearchInput searchBook={this.searchBook}/>
                 </div>
                 {isLoaded ? (
-                    <div className="bookList">
+                    <div className={s.bookList}>
                         {this.getBookList()}
                     </div>
                 ) : (

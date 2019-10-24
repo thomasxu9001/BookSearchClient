@@ -1,134 +1,135 @@
 @import './palette';
 
-.bookMainHeader {
-  position: sticky;
-  top: 0;
-  background-color: @white;
-}
-
-.bookList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.border {
-  border: 1px @black solid;
-}
-
-.bookCard {
-  .border();
-  width: 60%;
-  margin: 1rem;
-
-  &:hover {
-    cursor: pointer;
-    border: 1px solid @interaction;
+:local {
+  .bookMainHeader {
+    position: sticky;
+    top: 0;
+    background-color: @white;
   }
 
-  .card__field {
-    margin: 0.5rem;
+  .bookList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-}
 
-.searchBoxContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  .border {
+    border: 1px @black solid;
+  }
 
-  .searchInputContainer {
+  .bookCard {
+    .border();
+    width: 60%;
+    margin: 1rem;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid @interaction;
+    }
+
+    .card__field {
+      margin: 0.5rem;
+    }
+  }
+
+  .searchBoxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .searchInputContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .border();
+      width: 35%;
+      height: 2rem;
+
+      .searchInput {
+        border: none;
+        width: 100%;
+        height: 95%;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 10px #719ECE;
+          border: 1px @interaction solid;
+        }
+      }
+
+      .searchIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+        width: 10%;
+        height: 100%;
+        background-color: @interaction;
+        color: @white;
+      }
+    }
+
+
+  }
+
+  .dropDownContainer {
+    position: relative;
+    width: 35rem;
+    display: flex;
+    justify-content: center;
+
+    .searchHintContainer {
+      position: absolute;
+      background-color: @white;
+      width: 35rem;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      z-index: 1;
+
+      .hintItem {
+        padding: 0.5rem;
+
+        &:hover {
+          background: @grayLight;
+        }
+      }
+    }
+  }
+
+  .noResult {
+    margin: 1rem;
+  }
+
+
+  .bookContainer {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    .border();
-    width: 35%;
-    height: 2rem;
 
-    .searchInput {
-      border: none;
-      width: 100%;
-      height: 95%;
-
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 10px #719ECE;
-        border: 1px @interaction solid;
-      }
+    .bookDetailTitle {
+      font-weight: bold;
+      font-size: 2rem;
     }
 
-    .searchIcon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      cursor: pointer;
-      width: 10%;
-      height: 100%;
-      background-color: @interaction;
-      color: @white;
+    .bookDetailAuthor {
+      margin: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px @celestialLight solid;
     }
-  }
 
+    .bookDetailDescription {
+      margin: 1rem;
+      font-weight: bold;
+      text-align: left;
+    }
 
-}
-
-.dropDownContainer{
-  position: relative;
-  width: 35rem;
-  display: flex;
-  justify-content: center;
-
-  .searchHintContainer {
-    position: absolute;
-    background-color: @white;
-    width: 35rem;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-
-    .hintItem {
-      padding: 0.5rem;
-      &:hover {
-        background: @grayLight;
-      }
+    .backToList {
+      min-width: 140px;
+      margin: 5px 0 0 5px;
     }
   }
 }
-
-.noResult {
-  margin: 1rem;
-}
-
-
-
-.bookContainer {
-  display: flex;
-  flex-direction: row;
-
-  .bookDetailTitle {
-    font-weight: bold;
-    font-size: 2rem;
-  }
-
-  .bookDetailAuthor {
-    margin: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px @celestialLight solid;
-  }
-
-  .bookDetailDescription {
-    margin: 1rem;
-    font-weight: bold;
-    text-align: left;
-  }
-
-  .backToList {
-    min-width: 140px;
-    margin: 5px 0 0 5px;
-  }
-}
-
 
 
 

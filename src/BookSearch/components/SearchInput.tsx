@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {debounce} from 'throttle-debounce';
-import '../Book.less';
+
+import s from '../Book.less';
 import {Book} from '../Book';
 
 interface StateProps {
@@ -80,12 +81,12 @@ export class SearchInput extends Component<Props, State> {
         const {searchHint} = this.state;
 
         let items = searchHint.map((item: Book) => {
-                return <div className="hintItem" key={item.id}
+                return <div className={s.hintItem} key={item.id}
                             onClick={() => this.dropdownClickHandler(item.title)}> {item.title}</div>
             }
         );
 
-        return <div className="searchHintContainer">
+        return <div className={s.searchHintContainer}>
             {items}
         </div>
     };
@@ -95,15 +96,15 @@ export class SearchInput extends Component<Props, State> {
 
         return (
 
-            <div className="searchBoxContainer">
-                <div className="searchInputContainer">
-                    <input className="searchInput" onChange={this.onChangeHandler} value={searchValue}/>
-                    <div className="searchIcon" onClick={this.searchClickHandler}>
+            <div className={s.searchBoxContainer}>
+                <div className={s.searchInputContainer}>
+                    <input className={s.searchInput} onChange={this.onChangeHandler} value={searchValue}/>
+                    <div className={s.searchIcon} onClick={this.searchClickHandler}>
                         <FontAwesomeIcon icon="search"/>
                     </div>
 
                 </div>
-                <div className="dropDownContainer">
+                <div className={s.dropDownContainer}>
                     {searchHint && searchHint.length > 0 &&
                     this.renderSearchHint()
                     }

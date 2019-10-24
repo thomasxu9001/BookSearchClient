@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import '../Book.less';
-import {Book} from '../Book';
 import {RouteComponentProps, withRouter} from 'react-router';
+
+import {Book} from '../Book';
+import s from '../Book.less';
 
 
 interface StateProps {
@@ -24,11 +25,11 @@ export class BookCard extends Component<Props, State> {
     render() {
         const {item} = this.props;
         return (
-            <div className="bookCard" onClick={this.handleBookCardClick}>
-                <div className="card__field">
+            <div className={s.bookCard} onClick={this.handleBookCardClick}>
+                <div className={s.card__field}>
                     Title: {item.title}
                 </div>
-                <div className="card__field">
+                <div className={s.card__field}>
                     Author: {item.author}
                 </div>
             </div>

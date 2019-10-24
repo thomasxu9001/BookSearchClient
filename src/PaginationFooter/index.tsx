@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './Footer.less';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
+import s from './Footer.less';
+import cx from 'classnames';
 
 interface StateProps {
     totalPage: number
@@ -28,26 +28,26 @@ export class PaginationFooter extends Component<Props, State> {
         }
 
         return (
-            <div className="paginationFooterContainer">
-                <div className={isFirstPage ? "pageSelect disabled" : "pageSelect"} onClick={() => {
+            <div className={s.paginationFooterContainer}>
+                <div className={cx(isFirstPage && s.disabled, s.pageSelect)} onClick={() => {
                     if (isFirstPage) return;
                     onPageChange(currentPage - 1);
                 }}>
-                    Prev<FontAwesomeIcon className="chevronLeft" icon="chevron-left"/>
+                    Prev<FontAwesomeIcon className={s.chevronLeft} icon="chevron-left"/>
                 </div>
                 {pages.map(page =>
-                    <div key={page} className={(currentPage === page) ? "pageSelect active" : "pageSelect"} onClick={() => {
+                    <div key={page} className={cx((currentPage === page) && s.active, s.pageSelect)} onClick={() => {
                         if ((currentPage === page)) return;
                         onPageChange(page)
                     }}>
                         <span>{page}</span>
                     </div>
                 )}
-                <div className={isLastPage ? "pageSelect disabled" : "pageSelect"} onClick={() => {
+                <div className={cx(isLastPage && s.disabled, s.pageSelect)} onClick={() => {
                     if (isLastPage) return;
                     onPageChange(currentPage + 1);
                 }}>
-                    Next<FontAwesomeIcon className="chevronRight" icon="chevron-right"/>
+                    Next<FontAwesomeIcon className={s.chevronRight} icon="chevron-right"/>
                 </div>
             </div>
         );

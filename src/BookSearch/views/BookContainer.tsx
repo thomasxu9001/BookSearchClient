@@ -3,6 +3,8 @@ import {withRouter, RouteComponentProps, } from 'react-router';
 import {Link} from 'react-router-dom';
 
 import BookDetail from "../components/BookDetail";
+import s from "../Book.less";
+
 interface StateProps {
 
 }
@@ -19,8 +21,8 @@ export class BookContainer extends Component<Props, State> {
         const {match} = this.props;
 
         return (
-            <div className="bookContainer">
-                <Link className="backToList" to={'/'}>
+            <div className={s.bookContainer}>
+                <Link className={s.backToList} to={'/'}>
                     Back to Book List
                 </Link>
                 <BookDetail bookId={+match.params.id}/>

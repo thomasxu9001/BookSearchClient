@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+
 import {Book} from '../Book';
+import s from "../Book.less";
 
 interface StateProps {
     bookId: number
@@ -58,22 +60,23 @@ export class BookDetail extends Component<Props, State> {
         return (
             <div>
                 {book &&
-                    <div>
-                        <div className="bookDetailTitle">
-                            {book.title}
-                        </div>
-                        <div className="bookDetailAuthor">
-                            Author: {book.author}
-                        </div>
-                        <div className="bookDetailDescription">
-                             {book.description}
-                        </div>
+                <div>
+                    <div className={s.bookDetailTitle}>
+                        {book.title}
                     </div>
+                    <div className={s.bookDetailAuthor}>
+                        Author: {book.author}
+                    </div>
+                    <div className={s.bookDetailDescription}>
+                        {book.description}
+                    </div>
+                </div>
                 }
             </div>
         );
     }
 }
+
 export default BookDetail;
 
 

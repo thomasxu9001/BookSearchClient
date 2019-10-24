@@ -7,93 +7,95 @@
 @activeTextColor: @cloudLight;
 @hoverBackground: @baby;
 
-.paginationFooterContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 4rem;
+:local {
+  .paginationFooterContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
 
-  .pageSelect {
-    display: inline-block;
-    list-style: none;
-    min-width: 23px;
-    text-align: center;
-    cursor: pointer;
-    color: @interaction;
-    padding: 0.5rem 0.7rem;
-    border-radius: 0.2rem;
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    .chevronLeft {
-      margin-right: 0.4rem;
-    }
-
-    .chevronRight {
-      margin-left: 0.4rem;
-    }
-
-
-    &:hover {
-      background-color: @hoverBackground;
+    .pageSelect {
+      display: inline-block;
+      list-style: none;
+      min-width: 23px;
+      text-align: center;
+      cursor: pointer;
       color: @interaction;
-      text-decoration: none;
+      padding: 0.5rem 0.7rem;
+      border-radius: 0.2rem;
 
-      .chevronLeft, .chevronRight {
-        color: @interaction;
-      }
-    }
-
-    &.disabled {
-      color: @dust;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
 
       .chevronLeft {
-        color: @interactionLighter;
+        margin-right: 0.4rem;
       }
 
       .chevronRight {
-        color: @interactionLighter;
+        margin-left: 0.4rem;
       }
 
+
       &:hover {
-        background-color: inherit;
-        color: @dust;
+        background-color: @hoverBackground;
+        color: @interaction;
         text-decoration: none;
 
         .chevronLeft, .chevronRight {
-          color: @interactionLighter;
+          color: @interaction;
         }
       }
-    }
 
-    &.active {
+      &.disabled {
+        color: @dust;
 
-      .chevronLeft {
-        color: @interaction;
+        .chevronLeft {
+          color: @interactionLighter;
+        }
+
+        .chevronRight {
+          color: @interactionLighter;
+        }
+
+        &:hover {
+          background-color: inherit;
+          color: @dust;
+          text-decoration: none;
+
+          .chevronLeft, .chevronRight {
+            color: @interactionLighter;
+          }
+        }
       }
 
-      .chevronRight {
-        color: @interaction;
+      &.active {
+
+        .chevronLeft {
+          color: @interaction;
+        }
+
+        .chevronRight {
+          color: @interaction;
+        }
+
+        background-color: @activeBackgroundColor;
+        border-radius: 0.2rem;
+        padding: 0.5rem 0.7rem;
+
+        span {
+          color: @activeTextColor;
+        }
       }
 
-      background-color: @activeBackgroundColor;
-      border-radius: 0.2rem;
-      padding: 0.5rem 0.7rem;
-
-      span {
-        color: @activeTextColor;
+      span:hover {
+        text-decoration: none;
       }
-    }
 
-    span:hover {
-      text-decoration: none;
     }
-
   }
 }

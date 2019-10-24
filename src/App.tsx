@@ -4,7 +4,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import BookSearch from './BookSearch';
 import {BookContainer} from './BookSearch/views/BookContainer';
 import {NotFoundPage} from './NotFoundPage';
-import './App.css';
+import style from './App.less';
 
 //Font awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -25,7 +25,7 @@ export const SwitchConfig: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className={style.App}>
         <BrowserRouter>
             <SwitchConfig/>
         </BrowserRouter>
