@@ -37,6 +37,7 @@ export class PaginationFooter extends Component<Props, State> {
                 </div>
                 {pages.map(page =>
                     <div className={(currentPage === page) ? "pageSelect active" : "pageSelect"} onClick={() => {
+                        if ((currentPage === page)) return;
                         onPageChange(page)
                     }}>
                         <span>{page}</span>
