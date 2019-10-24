@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
+import {mount, ReactWrapper} from 'enzyme';
 import {BookListContainer, Props} from '../index';
 
 
@@ -15,7 +15,7 @@ describe('BookListContainer', () => {
         );
     });
 
-    it('looks good', () => {
+    it('looks good', async () => {
         expect(subject).toMatchSnapshot();
     });
 

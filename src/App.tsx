@@ -12,19 +12,27 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faSearch, faBook, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 library.add(fab, faSearch, faBook, faChevronLeft, faChevronRight);
 
+export const SwitchConfig: React.FC = () => {
+    return (
+        <Switch>
+            <Route exact path="/" component={BookListContainer} />
+            <Route exact path="/book/:id" component={BookContainer} />
+            <Route component={NotFoundPage} />
+        </Switch>
+    );
+};
+
 const App: React.FC = () => {
   return (
     <div className="App">
         <BrowserRouter>
-            <Switch>
-                <Route exact path="/" component={BookListContainer} />
-                <Route exact path="/book/:id" component={BookContainer} />
-                <Route component={NotFoundPage} />
-            </Switch>
+            <SwitchConfig/>
         </BrowserRouter>
 
     </div>
   );
 };
 
+
 export default App;
+
