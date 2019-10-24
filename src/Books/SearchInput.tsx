@@ -46,7 +46,7 @@ export class SearchInput extends Component<Props, State> {
     searchHint = (keyword?: string) => {
         // For better practise, we should have another api which just return matched title.
         const baseUrl = "http://localhost:8000/Rest/books";
-        let url = keyword ? baseUrl + '/search/' + keyword : baseUrl;
+        let url = keyword ? baseUrl + '?search=' + keyword : baseUrl;
         fetch(url, {
             method: 'GET'
         })

@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 import BookCard from "./BookCard";
 import {Book} from "./Book";
-
-import "./Book.less"
+import "./Book.less";
 import SearchInput from "./SearchInput";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import PaginationFooter from "../PaginationFooter";
+
+
 
 interface StateProps {
 
@@ -14,6 +17,9 @@ interface State {
     error: any
     isLoaded: boolean
     items: []
+    totalPage: number
+    currentPage: number
+    filter: string
 }
 
 
@@ -26,7 +32,10 @@ export class BookListContainer extends Component<Props, State> {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            totalPage: 0,
+            currentPage: 1,
+            filter:''
         };
     }
 
@@ -34,18 +43,24 @@ export class BookListContainer extends Component<Props, State> {
         this.searchBook();
     };
 
-    searchBook = (keyword?: string) => {
+    searchBook = (keyword?: string, page?: number) => {
         const baseUrl = "http://localhost:8000/Rest/books";
-        let url = keyword ? baseUrl + '?search=' + keyword : baseUrl;
+        let url = keyword ? baseUrl + '?search=' + keyword + '&': baseUrl + '?';
+        url = page ? url + 'page=' + page : url;
+
         fetch(url, {
             method: 'GET'
         })
             .then(res => res.json())
             .then(
                 (result) => {
+
                     this.setState({
+                        filter: keyword ? keyword : '',
                         isLoaded: true,
-                        items: result['items']
+                        items: result['items'],
+                        totalPage: result['total_page'],
+                        currentPage: result['page']
                     });
                 },
                 // Note: it's important to handle errors here
@@ -53,11 +68,19 @@ export class BookListContainer extends Component<Props, State> {
                 // exceptions from actual bugs in components.
                 (error) => {
                     this.setState({
+                        filter: keyword ? keyword : '',
                         isLoaded: true,
-                        error
+                        error,
+                        totalPage: 0,
+                        currentPage: 1
                     });
                 }
             );
+    };
+
+    onPaginationClickHandler = ( page: number) => {
+        const {filter} = this.state;
+        this.searchBook(filter, page);
     };
 
     // Generate BookCard list
@@ -73,7 +96,7 @@ export class BookListContainer extends Component<Props, State> {
     };
 
     render() {
-        const {isLoaded} = this.state;
+        const {isLoaded, totalPage, currentPage} = this.state;
 
         return (
             <>
@@ -88,7 +111,7 @@ export class BookListContainer extends Component<Props, State> {
                 ) : (
                     `Loading......`
                 )}
-
+                <PaginationFooter totalPage={totalPage} currentPage={currentPage} onPageChange={this.onPaginationClickHandler}/>
             </>
         );
     }

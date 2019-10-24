@@ -9,8 +9,8 @@ import './App.css';
 //Font awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faSearch, faBook } from '@fortawesome/free-solid-svg-icons'
-library.add(fab, faSearch, faBook);
+import { faSearch, faBook, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faSearch, faBook, faChevronLeft, faChevronRight);
 
 const App: React.FC = () => {
   return (

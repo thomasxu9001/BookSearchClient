@@ -1,0 +1,99 @@
+@import '../Books/palette';
+
+
+@borderColor: @statusGrayLight;
+@textColor: @text;
+@activeBackgroundColor: @interaction;
+@activeTextColor: @cloudLight;
+@hoverBackground: @baby;
+
+.paginationFooterContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+
+  .pageSelect {
+    display: inline-block;
+    list-style: none;
+    min-width: 23px;
+    text-align: center;
+    cursor: pointer;
+    color: @interaction;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.2rem;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    .chevronLeft {
+      margin-right: 0.4rem;
+    }
+
+    .chevronRight {
+      margin-left: 0.4rem;
+    }
+
+
+    &:hover {
+      background-color: @hoverBackground;
+      color: @interaction;
+      text-decoration: none;
+
+      .chevronLeft, .chevronRight {
+        color: @interaction;
+      }
+    }
+
+    &.disabled {
+      color: @dust;
+
+      .chevronLeft {
+        color: @interactionLighter;
+      }
+
+      .chevronRight {
+        color: @interactionLighter;
+      }
+
+      &:hover {
+        background-color: inherit;
+        color: @dust;
+        text-decoration: none;
+
+        .chevronLeft, .chevronRight {
+          color: @interactionLighter;
+        }
+      }
+    }
+
+    &.active {
+
+      .chevronLeft {
+        color: @interaction;
+      }
+
+      .chevronRight {
+        color: @interaction;
+      }
+
+      background-color: @activeBackgroundColor;
+      border-radius: 0.2rem;
+      padding: 0.5rem 0.7rem;
+
+      span {
+        color: @activeTextColor;
+      }
+    }
+
+    span:hover {
+      text-decoration: none;
+    }
+
+  }
+}
