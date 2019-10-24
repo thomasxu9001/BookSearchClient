@@ -4,8 +4,8 @@ import {mount} from 'enzyme';
 import {MemoryRouter} from 'react-router';
 
 import App, {SwitchConfig} from './App';
-import BookListContainer from './Books';
-import {BookContainer} from './Books/BookContainer';
+import BookListContainer from './BookSearch/views/BookListContainer';
+import {BookContainer} from './BookSearch/views/BookContainer';
 import {NotFoundPage} from './NotFoundPage';
 
 describe('render APP', () => {

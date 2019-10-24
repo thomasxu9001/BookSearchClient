@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {withRouter, RouteComponentProps, } from "react-router";
+import {withRouter, RouteComponentProps, } from 'react-router';
 import {Link} from 'react-router-dom';
 
-import BookDetail from "./BookDetail";
+import BookDetail from "../components/BookDetail";
 interface StateProps {
 
 }

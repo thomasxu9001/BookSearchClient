@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {debounce} from 'throttle-debounce';
-import "./Book.less";
-import {Book} from "./Book";
+import '../Book.less';
+import {Book} from '../Book';
 
 interface StateProps {
     searchBook: Function

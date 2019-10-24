@@ -4,7 +4,7 @@ import {match as routerMatch} from 'react-router';
 import {BrowserRouter} from 'react-router-dom'
 
 import {mount, ReactWrapper} from 'enzyme';
-import {BookContainer, Props} from "../BookContainer";
+import {BookContainer, Props} from "../views/BookContainer";
 
 const history = createMemoryHistory();
 const path = `/route/:id`;

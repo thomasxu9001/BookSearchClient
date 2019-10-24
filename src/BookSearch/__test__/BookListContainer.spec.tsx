@@ -1,6 +1,6 @@
 import React from 'react';
 import {mount, ReactWrapper} from 'enzyme';
-import {BookListContainer, Props} from '../index';
+import {BookListContainer, Props} from '../views/BookListContainer';
 
 
 describe('BookListContainer', () => {

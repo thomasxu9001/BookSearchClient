@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import "./Book.less";
-import {Book} from "./Book";
-import {RouteComponentProps, withRouter} from "react-router";
+import '../Book.less';
+import {Book} from '../Book';
+import {RouteComponentProps, withRouter} from 'react-router';
 
 
 interface StateProps {

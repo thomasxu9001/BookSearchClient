@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import "./Footer.less";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import './Footer.less';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 interface StateProps {

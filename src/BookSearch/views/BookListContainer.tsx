@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import BookCard from "./BookCard";
-import {Book} from "./Book";
-import "./Book.less";
-import SearchInput from "./SearchInput";
-import PaginationFooter from "../PaginationFooter";
+import BookCard from '../components/BookCard';
+import {Book} from '../Book';
+import "../Book.less";
+import SearchInput from '../components/SearchInput';
+import PaginationFooter from '../../PaginationFooter';
 
 
 
