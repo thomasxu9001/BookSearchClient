@@ -36,7 +36,7 @@ export class PaginationFooter extends Component<Props, State> {
                     Prev<FontAwesomeIcon className="chevronLeft" icon="chevron-left"/>
                 </div>
                 {pages.map(page =>
-                    <div className={(currentPage === page) ? "pageSelect active" : "pageSelect"} onClick={() => {
+                    <div key={page} className={(currentPage === page) ? "pageSelect active" : "pageSelect"} onClick={() => {
                         if ((currentPage === page)) return;
                         onPageChange(page)
                     }}>
