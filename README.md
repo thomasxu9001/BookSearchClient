@@ -12,6 +12,7 @@ A single page APP using React
  * webpack
  * less
  * css module
+ * Apache
  
 # Demo Site
   http://52.62.133.57/
