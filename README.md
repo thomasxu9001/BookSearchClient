@@ -5,13 +5,12 @@ A single page APP using React
  * Framework:  React with Typescript
  * React Router
  * Jest
- * enzyme
- * Jest
- * fortawesome
- * classnames
- * webpack
- * less
- * css module
+ * Enzyme
+ * Font Awesome
+ * Classnames
+ * Webpack
+ * Less
+ * Css module
  * Apache
  
 # Demo Site
